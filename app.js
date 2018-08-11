@@ -10,14 +10,13 @@ const bot = new Discord.Client({disableEveryone: true});
 
 bot.on('ready', async () => {
   console.log(`Logged in as ${bot.user.tag}! It's running on ${bot.guilds.size} servers!`)
-  bot.user.setActivity('sup', {type: 'STREAMING'});
+  bot.user.setActivity('sup', {type: 'LISTENING'});
 });
 
 bot.on('message', async message => {
-  if (message.author.bot) return;
-  if (message.channel.type === "dm") return;
-
-  message.channel.send('This is a test!');
+  if (message.content === "ping") {
+    message.reply("pong");
+  }
 });
 
 bot.login(Token);
