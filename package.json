@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "discord.io": "^2.5.3",
     "discord.js": "^11.4.0",
-    "dotenv": "^6.0.0",
-    "twitch-api-v5": "^2.0.4"
+    "twitch-api-v5": "^2.0.4",
+    "winston": "^3.0.0"
   }
 }
