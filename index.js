@@ -23,7 +23,6 @@ function generateUserID(msg, username) {
                 },
                 (req, res) => {
                     let json = JSON.parse(res.body);
-                    console.log(json.follows);
                     return new Promise(resolve => {
                         resolve(
                             json.follows.map(channel => {
@@ -37,7 +36,7 @@ function generateUserID(msg, username) {
 
                                 url: `https://api.twitch.tv/kraken/streams/?channel=${queryStr}&stream_type=live`,
                                 headers: {
-                                    'Client-ID': 'd4t8xvlad2p46ju6nmr8bxb1qd62un',
+                                    'Client-ID': `${process.env.TWITCH_CLIENT_ID}`,
                                     Accept: 'application/vnd.twitchtv.v5+json'
                                 }
                             },
