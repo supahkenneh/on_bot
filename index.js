@@ -1,5 +1,6 @@
 var api = require('twitch-api-v5');
 var request = require("request");
+const gifMaker = require('./gifmaker');
 require("dotenv").config();
 
 function generateUserID(msg, username) {
@@ -46,7 +47,8 @@ function generateUserID(msg, username) {
                                 json2.streams.map(element => {
                                     return msg.channel.send([ 
                                         element.channel.display_name,
-                                        element.channel.url
+                                        element.channel.url,
+                                        gifMaker()
                                     ]);
                                 });
                             }

@@ -2,6 +2,7 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const Token = process.env.DISCORD_TOKEN;
 const findFollows = require('./index')
+const gifMaker = require('./gifmaker');
 
 
 const bot = new Discord.Client({disableEveryone: true});
@@ -13,10 +14,10 @@ bot.on('ready', () => {
 bot.on('message', message => {
   if (message.content.charAt(0) === '?') {
     let user = message.content.substring(1);
-    console.log(user);
     return findFollows.generateUserID(message, user)
   } else if(message.content === "/getjaa") {
-    return message.channel.send("Hotfiyah");
+    let gif = gifMaker()
+    return message.channel.send(gif);
   }
 });
 
